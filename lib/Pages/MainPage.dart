@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:project1_login/Refactors/DataContainer.dart';
-import 'package:project1_login/Pages/Profile%20Page.dart';
-import 'package:project1_login/Refactors/Parameters.dart';
-import 'package:project1_login/Refactors/sheet.dart';
+import 'package:project1_login/Methods/MyAlertDialog.dart';
+import 'package:project1_login/Pages/ProfilePageInfo.dart';
+import 'package:project1_login/Classes/DataContainer.dart';
+import 'package:project1_login/Models/Parameters.dart';
+import 'package:project1_login/Methods/ModalSheetCustomization.dart';
+
 
 class MainPage extends StatefulWidget {
   @override
@@ -27,28 +29,34 @@ class _MainPageState extends State<MainPage> {
     return image = "images/$image.jpg";
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: MyModalSheet(
-        text: title,
-        email: email,
-        password: password,
-        onPressed: () {
-          Navigator.pop(context);
-          setState(() {
-            parameterList.add(Parameters(
-              title: title.text,
-              email: email.text,
-              password: password.text,
-            ));
-            title.clear();
-            email.clear();
-            password.clear();
-          });
-        },
-      ),
+      floatingActionButton: FloatingActionButton(
+          child: Icon(
+            Icons.add,
+          ),
+          onPressed: () {
+            modalSheetMethod(context, title, email, password, () {
+              setState(() {
+                if (title.text.isNotEmpty &&
+                    email.text.isNotEmpty &&
+                    password.text.isNotEmpty) {
+                  Navigator.pop(context);
+                  parameterList.add(Parameters(
+                    title: title.text,
+                    email: email.text,
+                    password: password.text,
+                  ));
+                  title.clear();
+                  email.clear();
+                  password.clear();
+                } else {
+                  myAlertDialogs(context);
+                }
+              });
+            });
+          }),
       appBar: AppBar(
         centerTitle: true,
         title: (Text(
@@ -66,7 +74,7 @@ class _MainPageState extends State<MainPage> {
               image: image(parameterList[index].title),
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return ProfilePage(
+                  return ProfilePageInfo(
                     title: parameterList[index].title,
                     password: parameterList[index].password,
                     email: parameterList[index].email,

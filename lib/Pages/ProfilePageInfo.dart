@@ -1,29 +1,29 @@
 import 'package:flutter/material.dart';
-import 'package:project1_login/Refactors/Constants.dart';
 
-import 'package:project1_login/Refactors/ProfilePageEntry.dart';
 
-class ProfilePage extends StatefulWidget {
+import 'package:project1_login/Classes/ProfilePageEntry.dart';
+
+class ProfilePageInfo extends StatefulWidget {
   final String title;
   final String email;
   final String password;
   final String image;
 
-  ProfilePage(
+  ProfilePageInfo(
       {required this.title,
       required this.email,
       required this.password,
       required this.image});
 
   @override
-  _ProfilePageState createState() => _ProfilePageState();
+  _ProfilePageInfoState createState() => _ProfilePageInfoState();
 }
 
-class _ProfilePageState extends State<ProfilePage> {
+class _ProfilePageInfoState extends State<ProfilePageInfo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: BACKGROUND_COLOR,
+
         body: SafeArea(
             child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:project1_login/Refactors/Constants.dart';
-import 'package:project1_login/Refactors/Button.dart';
-import 'package:project1_login/Pages/Land.dart';
+import 'package:project1_login/Pages/MainPage.dart';
+import 'package:project1_login/Classes/ButtonClass.dart';
+import 'package:project1_login/Pages/LandingPage.dart';
 
 class SignIn extends StatefulWidget {
   @override
@@ -13,12 +13,11 @@ class _SignInState extends State<SignIn> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: BACKGROUND_COLOR,
         elevation: 0,
         leading: IconButton(
           icon: Icon(
             Icons.arrow_back_rounded,
-            color: BLACK,
+            color: Colors.black,
           ),
           onPressed: () {
             Navigator.push(context, MaterialPageRoute(builder: (context) {
@@ -28,55 +27,54 @@ class _SignInState extends State<SignIn> {
         ),
       ),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Text(
-            "Login Here",
-            style: TextStyle(
-              fontSize: 32,
-              fontWeight: FontWeight.bold,
+          Center(
+            child: Text(
+              "Login Here",
+              style: TextStyle(
+                fontSize: 32,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
-          Text(
-            "Glad you came back",
-            style: TextStyle(
-                fontSize: 15,
-                fontFamily: "Montserrat",
-                fontWeight: FontWeight.w500,
-                color: BLACK),
+          Center(
+            child: Text(
+              "Glad you came back",
+              style: TextStyle(
+                  fontSize: 15,
+                  fontFamily: "Montserrat",
+                  fontWeight: FontWeight.w500,
+                  color: Colors.black),
+            ),
           ),
-          Container(
-              margin: EdgeInsets.fromLTRB(20, 20, 20, 10),
-              child: Column(
-                children: [
-                  TextField(
-                //    style: TextStyle(fontFamily: FONT),
-                    decoration: InputDecoration(
-                        hintText: "Enter Email",
-                        prefixIcon: Icon(Icons.email_outlined)),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
-                    child: TextField(
-                      obscureText: true,
-
-                      decoration: InputDecoration(
-                          hintText: "Enter Password",
-                          prefixIcon: Icon(Icons.password)),
-                    ),
-                  )
-                ],
-              )),
+          Padding(
+            padding: const EdgeInsets.all(9.0),
+            child: TextField(
+              //    style: TextStyle(fontFamily: FONT),
+              decoration: InputDecoration(
+                  hintText: "Enter Email",
+                  prefixIcon: Icon(Icons.email_outlined)),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(9.0),
+            child: TextField(
+              obscureText: true,
+              decoration: InputDecoration(
+                  hintText: "Enter Password", prefixIcon: Icon(Icons.password)),
+            ),
+          ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 12),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                Button(
-                  text: "Sign In",
-                  onPressed: () {},
-                  color: BUTTON_COLOR,
-                ),
-              ],
+            child: Button(
+              text: "Sign In",
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return MainPage();
+                }));
+              },
+              color: Colors.white,
             ),
           )
         ],

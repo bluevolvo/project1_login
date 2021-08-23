@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:project1_login/Refactors/Constants.dart';
+
 
 class ProfilePageEntry extends StatelessWidget {
   final String entryType;
@@ -22,7 +22,7 @@ class ProfilePageEntry extends StatelessWidget {
         children: [
           Text(
             entryType,
-            style: TextStyle(color: BUTTON_COLOR, fontSize: 28),
+            style: TextStyle(color: Colors.white, fontSize: 28),
           ),
           ListTile(
               leading: Icon(
@@ -30,7 +30,7 @@ class ProfilePageEntry extends StatelessWidget {
                 size: 35,
               ),
 
-              tileColor: BUTTON_COLOR,
+              tileColor:Colors.white,
               subtitle: Text(
                 subtitle,
                 style: TextStyle(
@@ -41,7 +41,7 @@ class ProfilePageEntry extends StatelessWidget {
               title: Text(
                 title,
                 style: TextStyle(
-                  color: BACKGROUND_COLOR,
+                  color: Color(0xFF8FB8DE),
                   fontSize: 20,
                   // fontFamily: FONT
                 ),

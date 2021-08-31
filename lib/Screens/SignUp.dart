@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:project1_login/Pages/MainPage.dart';
-import 'package:project1_login/Classes/ButtonClass.dart';
-import 'package:project1_login/Pages/LandingPage.dart';
+import 'package:project1_login/Screens/MainPage.dart';
+import 'package:project1_login/Widgets/ButtonClass.dart';
 
-class SignIn extends StatefulWidget {
+class SignUp extends StatefulWidget {
   @override
-  _SignInState createState() => _SignInState();
+  _SignUpState createState() => _SignUpState();
 }
 
-class _SignInState extends State<SignIn> {
+class _SignUpState extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,9 +19,7 @@ class _SignInState extends State<SignIn> {
             color: Colors.black,
           ),
           onPressed: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) {
-              return LandingPage();
-            }));
+            Navigator.pop(context);
           },
         ),
       ),
@@ -31,16 +28,17 @@ class _SignInState extends State<SignIn> {
         children: [
           Center(
             child: Text(
-              "Login Here",
+              "Register Here",
               style: TextStyle(
                 fontSize: 32,
+                //  fontFamily: FONT,
                 fontWeight: FontWeight.bold,
               ),
             ),
           ),
           Center(
             child: Text(
-              "Glad you came back",
+              "We can't wait to work with you",
               style: TextStyle(
                   fontSize: 15,
                   fontFamily: "Montserrat",
@@ -51,7 +49,7 @@ class _SignInState extends State<SignIn> {
           Padding(
             padding: const EdgeInsets.all(9.0),
             child: TextField(
-              //    style: TextStyle(fontFamily: FONT),
+              // style: TextStyle(fontFamily: FONT),
               decoration: InputDecoration(
                   hintText: "Enter Email",
                   prefixIcon: Icon(Icons.email_outlined)),
@@ -61,6 +59,7 @@ class _SignInState extends State<SignIn> {
             padding: const EdgeInsets.all(9.0),
             child: TextField(
               obscureText: true,
+              //   style: TextStyle(fontFamily: FONT),
               decoration: InputDecoration(
                   hintText: "Enter Password", prefixIcon: Icon(Icons.password)),
             ),
@@ -68,14 +67,13 @@ class _SignInState extends State<SignIn> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 12),
             child: Button(
-              text: "Sign In",
-              onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return MainPage();
-                }));
-              },
-              color: Colors.white,
-            ),
+                color: Colors.white,
+                text: "Sign Up",
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return MainPage();
+                  }));
+                }),
           )
         ],
       ),

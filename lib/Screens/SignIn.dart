@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:project1_login/Pages/MainPage.dart';
-import 'package:project1_login/Classes/ButtonClass.dart';
+import 'package:project1_login/Screens/MainPage.dart';
+import 'package:project1_login/Widgets/ButtonClass.dart';
+import 'package:project1_login/Screens/LandingPage.dart';
 
-class SignUp extends StatefulWidget {
+class SignIn extends StatefulWidget {
   @override
-  _SignUpState createState() => _SignUpState();
+  _SignInState createState() => _SignInState();
 }
 
-class _SignUpState extends State<SignUp> {
+class _SignInState extends State<SignIn> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,7 +20,9 @@ class _SignUpState extends State<SignUp> {
             color: Colors.black,
           ),
           onPressed: () {
-            Navigator.pop(context);
+            Navigator.push(context, MaterialPageRoute(builder: (context) {
+              return LandingPage();
+            }));
           },
         ),
       ),
@@ -28,17 +31,16 @@ class _SignUpState extends State<SignUp> {
         children: [
           Center(
             child: Text(
-              "Register Here",
+              "Login Here",
               style: TextStyle(
                 fontSize: 32,
-                //  fontFamily: FONT,
                 fontWeight: FontWeight.bold,
               ),
             ),
           ),
           Center(
             child: Text(
-              "We can't wait to work with you",
+              "Glad you came back",
               style: TextStyle(
                   fontSize: 15,
                   fontFamily: "Montserrat",
@@ -49,7 +51,7 @@ class _SignUpState extends State<SignUp> {
           Padding(
             padding: const EdgeInsets.all(9.0),
             child: TextField(
-              // style: TextStyle(fontFamily: FONT),
+              //    style: TextStyle(fontFamily: FONT),
               decoration: InputDecoration(
                   hintText: "Enter Email",
                   prefixIcon: Icon(Icons.email_outlined)),
@@ -59,7 +61,6 @@ class _SignUpState extends State<SignUp> {
             padding: const EdgeInsets.all(9.0),
             child: TextField(
               obscureText: true,
-              //   style: TextStyle(fontFamily: FONT),
               decoration: InputDecoration(
                   hintText: "Enter Password", prefixIcon: Icon(Icons.password)),
             ),
@@ -67,13 +68,14 @@ class _SignUpState extends State<SignUp> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 12),
             child: Button(
-                color: Colors.white,
-                text: "Sign Up",
-                onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return MainPage();
-                  }));
-                }),
+              text: "Sign In",
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return MainPage();
+                }));
+              },
+              color: Colors.white,
+            ),
           )
         ],
       ),

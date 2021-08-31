@@ -1,10 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:project1_login/Classes/ButtonClass.dart';
-import 'package:project1_login/Pages/SignIn.dart';
-import 'package:project1_login/Pages/SignUp.dart';
-
-
+import 'package:project1_login/Widgets/ButtonClass.dart';
+import 'package:project1_login/Screens/SignIn.dart';
+import 'package:project1_login/Screens/SignUp.dart';
 
 class LandingPage extends StatefulWidget {
   @override

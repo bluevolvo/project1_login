@@ -1,29 +1,27 @@
 import 'package:flutter/material.dart';
 
-class DataContainer extends StatefulWidget {
+// the data container that shows the information
+class DataContainer extends StatelessWidget {
   final String image;
   final String title;
   final String email;
   final Function() onTap;
+  final Function() onPressDel;
 
   DataContainer(
       {required this.title,
       required this.email,
       required this.image,
-      required this.onTap});
+      required this.onTap,
+      required this.onPressDel});
 
-  @override
-  _DataContainerState createState() => _DataContainerState();
-}
-
-class _DataContainerState extends State<DataContainer> {
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.end,
       children: [
         GestureDetector(
-          onTap: widget.onTap,
+          onTap: onTap,
           child: Container(
             margin: EdgeInsets.all(12),
             decoration: BoxDecoration(
@@ -38,25 +36,33 @@ class _DataContainerState extends State<DataContainer> {
                       padding: const EdgeInsets.all(8.0),
                       child: CircleAvatar(
                         radius: 35,
-                        backgroundImage: AssetImage(widget.image),
+                        backgroundImage: AssetImage(image),
                       ),
                     ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          widget.title,
+                          title,
                           style: TextStyle(
                             fontSize: 20,
                           ),
                         ),
                         Text(
-                          widget.email,
+                          email,
                           style:
                               TextStyle(fontSize: 15, fontFamily: "Montserrat"),
                         ),
                       ],
                     ),
+                    Spacer(),
+                    IconButton(
+                        onPressed: onPressDel,
+                        icon: Icon(
+                          Icons.delete_outline_outlined,
+                          size: 30,
+                          color: Color(0xFF8FB8DE),
+                        ))
                   ],
                 ),
               ],

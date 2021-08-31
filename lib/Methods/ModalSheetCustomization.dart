@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
-import '../Classes/FormFieldForAccountInfo.dart';
+import '../Widgets/Entries.dart';
+
+// first i brought in the widgets of my modal sheet and put it in a class extending
+//stateless widgets
+// followed it with a method which returns modal bottom sheet which in turn returns my class
 
 modalSheetMethod(
     context,

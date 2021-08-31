@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// Container that is meant to give more details to the details entered. This is used in profile page info
 
 class ProfilePageEntry extends StatelessWidget {
   final String entryType;
@@ -9,9 +10,9 @@ class ProfilePageEntry extends StatelessWidget {
 
   ProfilePageEntry(
       {required this.entryType,
-        required this.icon,
-        required this.title,
-        required this.subtitle});
+      required this.icon,
+      required this.title,
+      required this.subtitle});
 
   @override
   Widget build(BuildContext context) {
@@ -29,8 +30,7 @@ class ProfilePageEntry extends StatelessWidget {
                 icon,
                 size: 35,
               ),
-
-              tileColor:Colors.white,
+              tileColor: Colors.white,
               subtitle: Text(
                 subtitle,
                 style: TextStyle(

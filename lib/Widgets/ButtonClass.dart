@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+// same as any normal button
 class Button extends StatelessWidget {
   final String text;
   final Function() onPressed;
@@ -19,6 +19,7 @@ class Button extends StatelessWidget {
             backgroundColor: MaterialStateProperty.all<Color>(color),
             shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                 RoundedRectangleBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(10))))));
+              borderRadius: BorderRadius.all(Radius.circular(10)),
+            ))));
   }
 }
